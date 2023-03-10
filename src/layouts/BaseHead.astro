@@ -40,7 +40,7 @@ const {
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
-<link rel="icon" type="image/x-icon" href="/images/favicon.png" />
+<link rel="icon" type="image/x-icon" href="/favicon.svg" />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
@@ -78,18 +78,22 @@ const {
 />
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
-/>
-<link
-  rel="stylesheet"
   href="https://unpkg.com/@egjs/flicking@4.5.1/dist/flicking.css"
 />
 
 <!-- STYLES -->
-<link rel="stylesheet" href="/css/animate.css" />
-<link rel="stylesheet" href="/css/styles.main.css" />
-<link rel="stylesheet" href="/css/styles.sections.css" />
-{css && <link rel="stylesheet" href={`/css/styles.${css}.css`} />}
+<link rel="stylesheet" href="fonts/icomoon/style.css">
+<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/aos.css">
+
+<!-- MAIN CSS -->
+<link rel="stylesheet" href="css/style.css">
 
 <!-- SCRIPTS -->
 <script
@@ -106,7 +110,6 @@ const {
   is:inline
   src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"
 ></script>
-
 
 <!-- <script is:inline async defer src="/js/main.js"></script> -->
 

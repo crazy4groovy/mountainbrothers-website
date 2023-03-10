@@ -1,8 +1,31 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+
+import MobileMenu from "../components/page-section/MobileMenu.astro";
+import Header from "../components/page-section/Header.astro";
+import HeroImage from "../components/page-section/HeroImage.astro";
+import Form from "../components/page-section/Form.astro";
+import Services from "../components/page-section/Services.astro";
+import Testimonials from "../components/page-section/Testimonials.astro";
+import Projects from "../components/page-section/Projects.astro";
 ---
 
 <MainLayout css="main" confetti>
-</MainLayout>
+  <div class="site-wrap" id="home-section">
+    <MobileMenu />
 
-<style></style>
+    <Header />
+
+    <HeroImage />
+
+    <Form />
+
+    <Services />
+
+    <Testimonials />
+
+    <Projects />
+  </div>
+
+  <style></style>
+</MainLayout>
