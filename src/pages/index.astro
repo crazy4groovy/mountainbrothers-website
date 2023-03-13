@@ -4,7 +4,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import MobileMenu from "../components/page-section/MobileMenu.astro";
 import Header from "../components/page-section/Header.astro";
 import HeroImage from "../components/page-section/HeroImage.astro";
-import Form from "../components/page-section/Form.astro";
+import MessageForm from "../components/page-section/MessageForm.astro";
 import Services from "../components/page-section/Services.astro";
 import Testimonials from "../components/page-section/Testimonials.astro";
 import Projects from "../components/page-section/Projects.astro";
@@ -12,6 +12,7 @@ import ContactUs from "../components/page-section/ContactUs.astro";
 ---
 
 <MainLayout css="main" confetti>
+
   <div class="site-wrap" id="home-section">
     <MobileMenu />
 
@@ -19,7 +20,7 @@ import ContactUs from "../components/page-section/ContactUs.astro";
 
     <HeroImage />
 
-    <Form />
+    <MessageForm />
 
     <Services />
 
@@ -30,5 +31,4 @@ import ContactUs from "../components/page-section/ContactUs.astro";
     <ContactUs />
   </div>
 
-  <style></style>
 </MainLayout>

@@ -1,4 +1,5 @@
 ---
+import TestimonialCard from "./TestimonialCard.astro";
 ---
 
 <div class="site-section bg-light">
@@ -8,43 +9,25 @@
         <h2 class="line-bottom text-center">Testimonials</h2>
       </div>
     </div>
+
     <div class="row">
-      <div class="col-lg-6">
-        <div class="testimonial-3">
-          <blockquote>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure id
-            accusantium similique temporibus nihil blanditiis adipisci aperiam,
-            sapiente suscipit vero.
-          </blockquote>
-          <div class="vcard d-flex align-items-center">
-            <div class="img-wrap mr-3">
-              <img src="images/person_1.jpg" alt="Image" class="img-fluid" />
-            </div>
-            <div>
-              <span class="d-block">John Smith</span>
-              <span class="position">Client From Facebook</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="testimonial-3">
-          <blockquote>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure id
-            accusantium similique temporibus nihil blanditiis adipisci aperiam,
-            sapiente suscipit vero.
-          </blockquote>
-          <div class="vcard d-flex align-items-center">
-            <div class="img-wrap mr-3">
-              <img src="images/person_2.jpg" alt="Image" class="img-fluid" />
-            </div>
-            <div>
-              <span class="d-block">John Smith</span>
-              <span class="position">Client From Facebook</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <TestimonialCard
+        quote={`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure id
+      accusantium similique temporibus nihil blanditiis adipisci aperiam,
+      sapiente suscipit vero.`}
+        name="John Smith"
+        position="Client From Facebook"
+        imgSrc="images/person_1.jpg"
+      />
+
+      <TestimonialCard
+        quote={`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure id
+      accusantium similique temporibus nihil blanditiis adipisci aperiam,
+      sapiente suscipit vero.`}
+        name="Jane Smith"
+        position="Client From Facebook"
+        imgSrc="images/person_2.jpg"
+      />
     </div>
   </div>
 </div>

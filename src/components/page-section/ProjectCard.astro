@@ -1,5 +1,5 @@
 ---
-const { imgSrc, title, category } = Astro.props;
+const { imgSrc, title, category = "Renovate" } = Astro.props;
 ---
 
 <div class="col-md-6 mb-5 mb-lg-5 col-lg-4">
@@ -7,16 +7,18 @@ const { imgSrc, title, category } = Astro.props;
     <img src={imgSrc} alt="Image" class="img-fluid" />
 
     <div class="project-item-overlay">
-      <a class="category" href="#">{category || "Renovate"}</a>
-      <span class="plus">
+      <a class="category" href={imgSrc} target="_blank">{category}</a>
+      <!-- <span class="plus">
         <span class="icon-plus"></span>
-      </span>
-
-      <a href="#" class="project-title"><span>{title}</span></a>
+      </span> -->
+      <a href={imgSrc} class="project-title" target="_blank"
+        ><span>{title}</span>
+      </a>
     </div>
   </div>
   <style>
-    .project-item, .project-item img.img-fluid {
+    .project-item,
+    .project-item img.img-fluid {
       max-height: 250px;
       width: 100%;
       object-fit: cover;

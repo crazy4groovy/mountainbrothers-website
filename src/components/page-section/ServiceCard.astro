@@ -1,0 +1,14 @@
+---
+const { imgSrc, title, description } = Astro.props;
+---
+
+<div class="col-md-6 mb-5 mb-lg-5 col-lg-4">
+  <div class="service-2 h-100">
+    <div class="svg">
+      <img src={imgSrc} alt="Image" class="" />
+    </div>
+
+    <h3><span>{title}</span></h3>
+    <p>{description}</p>
+  </div>
+</div>

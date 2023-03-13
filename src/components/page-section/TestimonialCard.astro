@@ -1,0 +1,18 @@
+---
+const { quote, name, position, imgSrc } = Astro.props;
+---
+
+<div class="col-lg-6">
+  <div class="testimonial-3">
+    <blockquote>{quote}</blockquote>
+    <div class="vcard d-flex align-items-center">
+      <div class="img-wrap mr-3">
+        <img src={imgSrc} alt="face" class="img-fluid" />
+      </div>
+      <div>
+        <span class="d-block">{name}</span>
+        <span class="position">{position}</span>
+      </div>
+    </div>
+  </div>
+</div>

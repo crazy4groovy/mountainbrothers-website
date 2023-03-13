@@ -5,6 +5,6 @@ import prefetch from "@astrojs/prefetch";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://gingerbreadhomes.biz',
+  site: 'https://mountainbrothers.ca',
   integrations: [mdx(), sitemap(), prefetch()]
 });
