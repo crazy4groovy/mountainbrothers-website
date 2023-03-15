@@ -24,6 +24,13 @@ https://1linelayouts.glitch.me/
 $1: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6XB3AVTNRRXRS
 $1000: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YHVNDGHB2WDPJ
 
+## Sending Email via Gmail *USING SMTP protocol*
+
+- https://community.cloudflare.com/t/solved-how-to-use-gmail-smtp-to-send-from-an-email-address-which-uses-cloudflare-email-routing/382769
+- https://myaccount.google.com/apppasswords
+- https://www.npmjs.com/package/nodemailer
+- https://nodemailer.com/usage/
+
 ## 👀 Want to learn more about Astro?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

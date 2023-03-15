@@ -21,21 +21,39 @@
       <div class="col-md-6">
         <div class="quick-contact-form bg-white">
           <h2>Get A Free Quote</h2>
-          <form action="#" method="POST">
+          <form action="#" method="POST" class="message-form">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Name" />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Name"
+                name="name"
+              />
             </div>
             <div class="form-group">
-              <input type="email" class="form-control" placeholder="Email" />
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                name="from"
+              />
             </div>
             <div class="form-group">
               <textarea
-                name=""
                 class="form-control"
-                id=""
                 cols="30"
                 rows="5"
-                placeholder="Message"></textarea>
+                placeholder="Message"
+                name="text"></textarea>
+            </div>
+            <div class="form-group">
+              * Human Question: Today's Day of Month Is...
+              <input
+                type="number"
+                class="form-control"
+                placeholder="A Number"
+                name="answer"
+              />
             </div>
             <div class="form-group">
               <input
@@ -50,3 +68,42 @@
     </div>
   </div>
 </div>
+
+<script>
+  // Find our component DOM on the page.
+  const forms = document.querySelectorAll(
+    "form.message-form"
+  ) as NodeListOf<HTMLFormElement>;
+
+  // Add event listeners to form submit button.
+  forms.forEach((form) => {
+    form.addEventListener("submit", (evt: any) => {
+      evt.preventDefault();
+      if (!evt.target) return;
+      const data = new FormData(evt.target);
+      const values = Object.fromEntries(data.entries());
+
+      if (!values.answer) {
+        alert("Human Question required, robot!");
+        return;
+      }
+
+      const sub = form.querySelector("input[type=submit]") as HTMLButtonElement;
+      sub.disabled = true;
+
+      fetch("/api/email", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(values),
+      })
+        .then(() => {
+          sub.value = "Sent!";
+          alert("Email Sent!");
+        })
+        .catch(() => {
+          sub.value = "Error";
+          alert("Error Sending Email -- Please Try Again Later");
+        });
+    });
+  });
+</script>

@@ -14,20 +14,22 @@
     </div>
     <div class="row">
       <div class="col-lg-8 mb-5">
-        <form action="#" method="post">
+        <form action="#" method="post" class="contact-us">
           <div class="form-group row">
             <div class="col-md-6 mb-4 mb-lg-0">
               <input
                 type="text"
                 class="form-control"
                 placeholder="First name"
+                name="firstName"
               />
             </div>
             <div class="col-md-6">
               <input
                 type="text"
                 class="form-control"
-                placeholder="First name"
+                placeholder="Last name"
+                name="lastName"
               />
             </div>
           </div>
@@ -38,6 +40,7 @@
                 type="text"
                 class="form-control"
                 placeholder="Email address"
+                name="from"
               />
             </div>
           </div>
@@ -45,13 +48,21 @@
           <div class="form-group row">
             <div class="col-md-12">
               <textarea
-                name=""
-                id=""
                 class="form-control"
                 placeholder="Write your message."
+                name="text"
                 cols="30"
                 rows="10"></textarea>
             </div>
+          </div>
+          <div class="form-group">
+            * Human Question: Today's Day of Month Is...
+            <input
+              type="number"
+              class="form-control"
+              placeholder="A Number"
+              name="answer"
+            />
           </div>
           <div class="form-group row">
             <div class="col-md-6 mr-auto">
@@ -66,7 +77,7 @@
       </div>
       <div class="col-lg-4 ml-auto">
         <div class="bg-white p-3 p-md-5">
-          <h3 class="text-black mb-4">Or Contact Us!</h3>
+          <h3 class="text-black mb-4">Or Contact Us Direct!</h3>
           <ul class="list-unstyled footer-link">
             <!-- <li class="d-block mb-3">
               <span class="d-block text-black">Address:</span>
@@ -88,3 +99,43 @@
     </div>
   </div>
 </div>
+
+<script>
+  // Find our component DOM on the page.
+  const forms = document.querySelectorAll(
+    "form.contact-us"
+  ) as NodeListOf<HTMLFormElement>;
+
+  // Add event listeners to form submit button.
+  forms.forEach((form) => {
+    form.addEventListener("submit", (evt: any) => {
+      evt.preventDefault();
+      if (!evt.target) return;
+      const data = new FormData(evt.target);
+      const values = Object.fromEntries(data.entries());
+      values.name = [values.firstName, values.lastName].join(" ").trim();
+
+      if (!values.answer) {
+        alert("Human Question required, robot!");
+        return;
+      }
+
+      const sub = form.querySelector("input[type=submit]") as HTMLButtonElement;
+      sub.disabled = true;
+
+      fetch("/api/email", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(values),
+      })
+        .then(() => {
+          sub.value = "Sent!";
+          alert("Email Sent!");
+        })
+        .catch(() => {
+          sub.value = "Error";
+          alert("Error Sending Email -- Please Try Again Later");
+        });
+    });
+  });
+</script>
