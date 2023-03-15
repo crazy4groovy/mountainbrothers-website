@@ -52,24 +52,26 @@ export const post: APIRoute = async function post({ request }) {
   const body = (await request.json()) as PostBody;
 
   // validate honeypot
+  // Challenge question: "Today's Day of Month Is..."
   const { answer } = body;
   // Note: buffer by +/-1 day to handle diff time zones
   doSend = Math.abs(new Date().getDate() - Number(answer)) <= 1;
-
   if (!doSend) {
     return makeResponse200(answer);
   }
 
   let { from, name, text } = body;
-  if (!from || !name || !text) {
+  doSend = Boolean(from && name && text);
+  if (!doSend) {
     return makeResponse200("body");
   }
 
-  [from, name, text] = [from, name, text].map((t, i) =>
-    t.slice(0, 50 + 200 * i)
+  [from, name, text] = [from, name, text].map(
+    (t, i) => t.slice(0, 50 + 200 * i) // do some VERY basic input sanitization
   );
 
   await _post({ from, name, text }).catch((err) => {
+    // TODO: needs better error handling!
     console.error({ poolConfig, err: err.message });
   });
 
