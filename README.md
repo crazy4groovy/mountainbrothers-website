@@ -1,6 +1,8 @@
 # Mountain Brothers website
 
-https://mountainbrothers.com
+https://mountainbrothers.ca
+
+mountainbrothersinc@gmail.com
 
 ## Web dev resources
 
