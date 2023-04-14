@@ -1,0 +1,35 @@
+---
+const { imgSrc, title, category = "Renovate", wide = false } = Astro.props;
+---
+
+<div class={`col-md-6 mb-5 mb-lg-5 col-lg-${wide ? '6' : '4'}`}>
+  <div class="project-item">
+    <img src={imgSrc} alt="Image" class:list={["img-fluid", wide ? "posTop" : ""]} />
+
+    <div class="project-item-overlay">
+      <a class="category" href={imgSrc} target="_blank">{category}</a>
+      <!-- <span class="plus">
+        <span class="icon-plus"></span>
+      </span> -->
+      <a href={imgSrc} class="project-title" target="_blank"
+        ><span>{title}</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .project-item,
+  .project-item img.img-fluid {
+    max-height: 215px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .project-item img.img-fluid.posTop {
+    /* object-position: top; */
+  }
+  .category {
+    color: white !important;
+  }
+</style>

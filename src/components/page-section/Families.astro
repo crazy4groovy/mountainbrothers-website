@@ -1,0 +1,40 @@
+---
+import FamilyCard from "./ImgCard.astro";
+---
+
+<div class="site-section">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-md-4 mx-auto">
+        <h2 class="line-bottom text-center">Meet Our Families</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <FamilyCard
+        imgSrc="images/photos/peter_fam1.jpg"
+        title="Peter"
+        category="Family"
+        wide={true}
+      />
+      <FamilyCard
+        imgSrc="images/photos/ben_fam1.jpg"
+        title="Ben"
+        category="Family"
+        wide={true}
+      />
+      <FamilyCard
+        imgSrc="images/photos/man1_fam1.jpg"
+        title="Assistant"
+        category="Family"
+        wide={true}
+      />
+      <FamilyCard
+        imgSrc="images/photos/man2_fam1.jpg"
+        title="Assistant"
+        category="Family"
+        wide={true}
+      />
+    </div>
+  </div>
+</div>
