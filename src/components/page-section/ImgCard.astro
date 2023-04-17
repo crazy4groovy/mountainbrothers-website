@@ -1,10 +1,10 @@
 ---
-const { imgSrc, title, category = "Renovate", wide = false } = Astro.props;
+const { imgSrc, title, category = "Renovate", wide = false, bgTop = false } = Astro.props;
 ---
 
 <div class={`col-md-6 mb-5 mb-lg-5 col-lg-${wide ? '6' : '4'}`}>
   <div class="project-item">
-    <img src={imgSrc} alt="Image" class:list={["img-fluid", wide ? "posTop" : ""]} />
+    <img src={imgSrc} alt="Image" class:list={["img-fluid", bgTop ? "bgTop" : "", wide ? "wide" : ""]} />
 
     <div class="project-item-overlay">
       <a class="category" href={imgSrc} target="_blank">{category}</a>
@@ -26,8 +26,11 @@ const { imgSrc, title, category = "Renovate", wide = false } = Astro.props;
     object-fit: cover;
     object-position: center;
   }
-  .project-item img.img-fluid.posTop {
-    /* object-position: top; */
+  .project-item img.img-fluid.wide {
+    max-height: 275px;
+  }
+  .project-item img.img-fluid.bgTop {
+    object-position: top;
   }
   .category {
     color: white !important;
